@@ -1,0 +1,48 @@
+body {
+	text-align: center;
+	background-color: linen;
+	font-size: 2em;
+}
+
+
+#main {
+
+    margin: 0 auto;
+
+	margin-top: 30px;
+
+  	text-align: center;
+	width: 960px;
+	height: 780px;
+
+	padding: 10px;
+	border-radius: 5px;
+	border: thin green solid;
+	color: green;
+
+}
+
+nav ul li {
+	display: inline;
+
+	 width: auto;
+
+}
+
+nav ul li a {
+	font-family: consolas;
+	border: thin green solid;
+	text-decoration: none;
+	padding: 10px;
+
+}
+
+nav ul li a:hover{
+	color: green;
+	text-decoration: underline;
+}
+
+
+.footer {
+	font-size: 0.5em;
+}
