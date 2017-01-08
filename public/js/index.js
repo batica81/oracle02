@@ -6,7 +6,6 @@ function Tablify(data){
 
         for (var keyName in data[0]){
           tableHeader += '<th>' + keyName + '</th>';
-
         }
 
         tableHeader += '</thead>';
@@ -16,7 +15,6 @@ function Tablify(data){
           tableRow += '<tr>';
 
             for(var key in turk){
-   
               tableRow += '<td>' + turk[key] + '</td>';
             }
 
@@ -30,11 +28,11 @@ function Tablify(data){
 } // end tablify
 
 
-function Populate_option(data){
+function Populate_option(data, id, fieldname){
 
   for(var i=0;i<data.length;i++){
     var turk = data[i];
-    var option = '<option value="' + turk['SIFRAKUPCA'] + '">'+ turk['IMEKUPCA']+'</option>';
+    var option = '<option value="' + turk[id] + '">'+ turk[fieldname]+'</option>';
     $('#selectbasic').append(option);
   }
 
