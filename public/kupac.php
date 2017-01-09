@@ -10,13 +10,17 @@ require_once 'dbaccess_class.php';
 if (isset($_POST) && (!empty($_POST['imekupca'])) ) {
 
     $db = new DbAccess;
-    $last_user_id = $db->database->insert("KUPAC", [
-        "IMEKUPCA" => $_POST['imekupca'],
-        "ADRESA" => $_POST['adresa'],
-        "PIB" => $_POST['pib'],
-        "BRTEL" => $_POST['brtel'],
-        "EMAIL" => $_POST['email']
-    ]);
+ 
+        $IMEKUPCA = $_POST['imekupca'];
+        $ADRESA = $_POST['adresa'];
+        $PIB = $_POST['pib'];
+        $BRTEL = $_POST['brtel'];
+        $EMAIL = $_POST['email'];
+ 
+    $sql_query = "INSERT INTO KUPAC (IMEKUPCA, DETALJI) VALUES ('".$IMEKUPCA."', DETALJI_KUPCA('".$ADRESA."', '".$PIB."', '".$BRTEL."', '".$EMAIL."'))";
+
+   $db->database->query($sql_query);
+
 }
 
 ?>

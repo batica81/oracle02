@@ -10,7 +10,7 @@ require_once 'dbaccess_class.php';
 if (isset($_POST) && (!empty($_POST['NAZIVARTIKLA'])) ) {
 
     $db = new DbAccess;
-    $last_user_id = $db->database->insert("ARTIKAL", [
+    $last_user_id = $db->database->insert("ARTIKAL_VIEW", [
         "NAZIVARTIKLA" => $_POST['NAZIVARTIKLA'],
         "OPISARTIKLA" => $_POST['OPISARTIKLA'],
         "JEDMERE" => $_POST['JEDMERE']

@@ -11,8 +11,7 @@ if (isset($_POST) && (!empty($_POST['SIFRAKUPCA'])) ) {
 
     $db = new DbAccess;
     $last_user_id = $db->database->insert("PONUDA", [
-        "SIFRAKUPCA" => $_POST['SIFRAKUPCA'],
-        "SIFRAUPITA" => $_POST['SIFRAUPITA']
+        "SIFRAKUPCA" => $_POST['SIFRAKUPCA']
     ]);
 }
 
