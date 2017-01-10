@@ -39,12 +39,54 @@ if (isset($_POST) && (!empty($_POST['SIFRAKUPCA'])) ) {
         </div>
     </div>
     <table id='myTable' border='1' class='tablesorter table table-striped'></table>
-</div>
+
+    <table id="detalji_ponude" border='1' class='tablesorter table table-striped'></table>
+
+    <table id="test">
+        <tr><td>aaa</td></tr>
+        <tr><td>aaa</td></tr>
+        <tr><td>aaa</td></tr>
+        <tr><td>aaa</td></tr>
+    </table>
 
 <script>
-    $.getJSON('get_ponuda.php', function(jsondata) {Tablify(jsondata);});
+    $.getJSON('get_ponuda.php', function(jsondata) {Tablify(jsondata, '#myTable');});
     $.getJSON('get_kupac.php', function(jsondata) {Populate_option(jsondata,'SIFRAKUPCA', 'IMEKUPCA');});
+
+
+
+
+
+// $.ajax('get_stavke_ponude.php')
+
+$(document).ready(function(){
+
+
+$("#myTable tr").each(function() {
+   // $('#mytable').empty();
+   // $.post('https://tor64.duckdns.org/Turci/php/index2.php', {firstname : $("#firstname").val(), lastname : $("#lastname").val()}, function (json){Tablify(json);}, 'json');
+   // event.preventDefault();
+
+   $(this).click(function(){
+        alert(this.id);
+    
+   });
+
+});
+    
+});
+
+
+
+
+
+
+    // $.getJSON('get_stavke_ponude.php', function(jsondata) {Tablify(jsondata, '#detalji_ponude');});
+
 </script>
+
+
+</div>
 
 <?php 
 require_once 'footer.php';

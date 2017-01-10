@@ -47,7 +47,7 @@ if (isset($_POST) && (!empty($_POST['NAZIVARTIKLA'])) ) {
 </div>
 
 <script>
-        $.getJSON('get_artikal.php', function(jsondata) {Tablify(jsondata);});
+        $.getJSON('get_artikal.php', function(jsondata) {Tablify(jsondata, '#myTable');});
 </script>
 
 <?php 

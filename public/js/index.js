@@ -1,5 +1,5 @@
 
-function Tablify(data){ 
+function Tablify(data, table_id){ 
 
         var tableRow;
         var tableHeader = '<thead>';
@@ -21,9 +21,9 @@ function Tablify(data){
           tableRow += '</tr>';
         }
 
-        $('#myTable').append(tableHeader);
-        $('#myTable').append(tableRow);
-        $("#myTable").tablesorter(); 
+        $(table_id).append(tableHeader);
+        $(table_id).append(tableRow);
+        $(table_id).tablesorter(); 
 
 } // end tablify
 

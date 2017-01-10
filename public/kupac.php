@@ -77,7 +77,7 @@ if (isset($_POST) && (!empty($_POST['imekupca'])) ) {
 </div>
 
 <script>
-        $.getJSON('get_kupac.php', function(jsondata) {Tablify(jsondata);});
+        $.getJSON('get_kupac.php', function(jsondata) {Tablify(jsondata, '#myTable');});
 </script>
 
 <?php 
