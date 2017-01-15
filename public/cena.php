@@ -51,7 +51,7 @@ if (isset($_POST) && (!empty($_POST['SIFRAARTIKLA'])) ) {
 
 <script>
         $.getJSON('get_cena.php', function(jsondata) {Tablify(jsondata, '#myTable');});
-        $.getJSON('get_artikal.php', function(jsondata) {Populate_option(jsondata, 'SIFRAARTIKLA', 'NAZIVARTIKLA');});
+        $.getJSON('get_artikal.php', function(jsondata) {Populate_option(jsondata, 'SIFRAARTIKLA', 'NAZIVARTIKLA', '#selectbasic');});
 </script>
 
 <?php 

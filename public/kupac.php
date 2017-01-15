@@ -73,11 +73,24 @@ if (isset($_POST) && (!empty($_POST['imekupca'])) ) {
         </div>
     </div>
 
-    <table id='myTable' border='1' class='tablesorter table table-striped'></table>
+    <table id='myTable_kupac' border='1' class='tablesorter table table-striped'></table>
+
+
 </div>
 
+
+
+
 <script>
-        $.getJSON('get_kupac.php', function(jsondata) {Tablify(jsondata, '#myTable');});
+       $(document).ready(function() {
+
+        $.getJSON('get_kupac.php', function(jsondata) {Tablify_kupac(jsondata, '#myTable_kupac', 'SIFRAKUPCA');});
+
+
+
+
+});
+
 </script>
 
 <?php 

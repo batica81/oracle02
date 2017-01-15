@@ -43,11 +43,19 @@ if (isset($_POST) && (!empty($_POST['NAZIVARTIKLA'])) ) {
             </div>
         </div>
     </div>
-    <table id='myTable' border='1' class='tablesorter table table-striped'></table>
+    <table id='myTable_artikal' border='1' class='tablesorter table table-striped'></table>
 </div>
 
 <script>
-        $.getJSON('get_artikal.php', function(jsondata) {Tablify(jsondata, '#myTable');});
+
+       $(document).ready(function() {
+    $.getJSON('get_artikal.php', function(jsondata) {Tablify_artikal(jsondata, '#myTable_artikal', 'SIFRAARTIKLA');});
+
+      
+
+
+
+});
 </script>
 
 <?php 

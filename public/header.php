@@ -1,6 +1,6 @@
 ﻿<?php
 session_start();
-// error_reporting(0);
+error_reporting(0);
 require_once 'connectvars.php';
 
 if (!isset($_SERVER['PHP_AUTH_PW']) || (($_SERVER['PHP_AUTH_PW'] != HTTP_PASS))) {
@@ -18,10 +18,12 @@ if (!isset($_SERVER['PHP_AUTH_PW']) || (($_SERVER['PHP_AUTH_PW'] != HTTP_PASS)))
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.min.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
     <script src="js/jquery-2.2.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src='js/tablesorter.min.js'></script> 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
     <script src="js/index.js"></script>
     <title>VWG Inženjering</title>
   </head>

@@ -32,29 +32,44 @@ if (isset($_POST) && (!empty($_POST['SIFRAKUPCA'])) ) {
 
                                     </select>
                         </div>
-                        <button id="singlebutton" name="singlebutton" class="btn btn-success">Dodaj ponudu</button>
+                        <button id="singlebutton" name="singlebutton" class="btn btn-info">Dodaj ponudu</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <table id='myTable' border='1' class='tablesorter table table-striped'></table>
+    <table id='myTable_ponuda' border='1' class='tablesorter table table-striped edit'></table>
 
     <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Kreirajte novu ponudu</h3>
+                    <h3 class="panel-title">Dodajte novu stavku ponude</h3>
                 </div>
                 <div class="panel-body">
                     <form action="" method="post" role="form">
                         <div class="form-group">
-                                  <label class="control-label" for="selectbasic">Izaberi Kupca</label>
-                                    <select id="selectbasic" name="SIFRAKUPCA" class="form-control">
+                                  <label class="control-label" for="select_BRPONUDE">Izaberi ponudu</label>
+                                    <select id="select_BRPONUDE" name="BRPONUDE" class="form-control">
 
                                     </select>
                         </div>
+
+                         <div class="form-group">
+                                  <label class="control-label" for="select_SIFRAARTIKLA">Izaberi artikal</label>
+                                    <select id="select_SIFRAARTIKLA" name="SIFRAARTIKLA" class="form-control">
+
+                                    </select>
+                        </div>
+
+                         <div class="form-group">
+                                  <label class="control-label" for="selectbasic3">Izaberi kolicinu</label>
+                                    <select id="selectbasic3" name="SIFRAKUPCA" class="form-control">
+
+                                    </select>
+                        </div>
+
                         <button id="singlebutton" name="singlebutton" class="btn btn-success">Dodaj ponudu</button>
                     </form>
                 </div>
@@ -65,39 +80,26 @@ if (isset($_POST) && (!empty($_POST['SIFRAKUPCA'])) ) {
     <table id="detalji_ponude" border='1' class='tablesorter table table-striped'></table>
 
 <script>
-    $.getJSON('get_ponuda.php', function(jsondata) {Tablify(jsondata, '#myTable');});
-    $.getJSON('get_kupac.php', function(jsondata) {Populate_option(jsondata,'SIFRAKUPCA', 'IMEKUPCA');});
+
+ // $(document).ready(function() {
+     // $('.edit').editable('http://www.example.com/save.php');
+ // });
+
+    $.getJSON('get_ponuda.php', function(jsondata) {Tablify_ponuda(jsondata, '#myTable_ponuda', 'BRPONUDE');});
+    $.getJSON('get_kupac.php', function(jsondata) {Populate_option(jsondata,'SIFRAKUPCA', 'IMEKUPCA', '#selectbasic');});
 
 
 
 
-
-// $.ajax('get_stavke_ponude.php')
-
-$(document).ready(function(){
-
-
-$("#myTable tr").each(function() {
-   // $('#mytable').empty();
-   // $.post('https://tor64.duckdns.org/Turci/php/index2.php', {firstname : $("#firstname").val(), lastname : $("#lastname").val()}, function (json){Tablify(json);}, 'json');
-   // event.preventDefault();
-
-   $(this).click(function(){
-        alert(this.id);
-    
-   });
-
-});
-    
-});
+    $.getJSON('get_stavke_ponude.php?BRPONUDE=47', function(jsondata) {Tablify(jsondata, '#detalji_ponude');});
 
 
 
 
 
 
-     $.getJSON('get_stavke_ponude.php?BRPONUDE=47', function(jsondata) {Tablify(jsondata, '#detalji_ponude');});
 
+     
 </script>
 
 
