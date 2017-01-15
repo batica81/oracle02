@@ -38,16 +38,31 @@ if (isset($_POST) && (!empty($_POST['SIFRAKUPCA'])) ) {
             </div>
         </div>
     </div>
+
     <table id='myTable' border='1' class='tablesorter table table-striped'></table>
 
-    <table id="detalji_ponude" border='1' class='tablesorter table table-striped'></table>
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Kreirajte novu ponudu</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="" method="post" role="form">
+                        <div class="form-group">
+                                  <label class="control-label" for="selectbasic">Izaberi Kupca</label>
+                                    <select id="selectbasic" name="SIFRAKUPCA" class="form-control">
 
-    <table id="test">
-        <tr><td>aaa</td></tr>
-        <tr><td>aaa</td></tr>
-        <tr><td>aaa</td></tr>
-        <tr><td>aaa</td></tr>
-    </table>
+                                    </select>
+                        </div>
+                        <button id="singlebutton" name="singlebutton" class="btn btn-success">Dodaj ponudu</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table id="detalji_ponude" border='1' class='tablesorter table table-striped'></table>
 
 <script>
     $.getJSON('get_ponuda.php', function(jsondata) {Tablify(jsondata, '#myTable');});
@@ -81,7 +96,7 @@ $("#myTable tr").each(function() {
 
 
 
-    // $.getJSON('get_stavke_ponude.php', function(jsondata) {Tablify(jsondata, '#detalji_ponude');});
+     $.getJSON('get_stavke_ponude.php?BRPONUDE=47', function(jsondata) {Tablify(jsondata, '#detalji_ponude');});
 
 </script>
 

@@ -10,9 +10,14 @@ class ComposerStaticInitf37a2120f0b596ff254b4ff39541ff12
         'c7359326b6707d98bdc176bf9ddeaebf' => __DIR__ . '/..' . '/catfan/medoo/medoo.php',
     );
 
+    public static $classMap = array (
+        'FPDF' => __DIR__ . '/..' . '/setasign/fpdf/fpdf.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->classMap = ComposerStaticInitf37a2120f0b596ff254b4ff39541ff12::$classMap;
 
         }, null, ClassLoader::class);
     }

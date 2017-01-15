@@ -1,5 +1,6 @@
 {
     "require": {
-        "catfan/medoo": "^1.1"
+        "catfan/medoo": "^1.1",
+        "setasign/fpdf": "^1.8"
     }
 }

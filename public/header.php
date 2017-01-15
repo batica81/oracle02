@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 // error_reporting(0);
 require_once 'connectvars.php';
@@ -48,7 +48,7 @@ if (!isset($_SERVER['PHP_AUTH_PW']) || (($_SERVER['PHP_AUTH_PW'] != HTTP_PASS)))
             <li><a href="cena.php">Cenovnik</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="adminer.php">Baza</a></li>
+            <li><a href="adminer/adminer.php">Baza</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

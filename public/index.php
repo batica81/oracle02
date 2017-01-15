@@ -6,7 +6,14 @@ require_once 'header.php';
 
 <h3>Dobrodošli !</h3>
 
-<p>Market BASE jump dissident camera wristwatch disposable savant range-rover hotdog math-man lights gang silent geodesic girl shanty town. Dome chrome Kowloon pen towards faded apophenia marketing. Kanji A.I. wonton soup wristwatch dome film ablative human assault fetishism geodesic into decay. Cardboard faded rain tattoo physical garage grenade digital concrete cyber-Chiba systemic industrial grade apophenia soul-delay military-grade uplink.-ware convenience store face forwards media otaku modem dolphin marketing. Pre-otaku RAF papier-mache shrine courier free-market pistol fetishism franchise apophenia j-pop. Uplink meta-Shibuya film nodality monofilament vehicle lights footage. Chrome city cardboard A.I. silent bomb Kowloon Shibuya bicycle artisanal nodal point urban courier paranoid. Artisanal Kowloon stimulate wonton soup uplink range-rover narrative alcohol fetishism RAF receding-ware media industrial grade into. </p>
+<p>Preduzeće VWG Inženjering d.o.o. iz Beograda se bavi prodajom, instalacijom i održavanjem sistema tehničke zaštite, kao i pružanjem konsultantskih usluga iz oblasti fizičko-tehničke bezbednosti.</p>
+<br>	
+
+<h4>Ova aplikacija predstavlja implementaciju podmodela - <strong>		Prodaja proizvoda</strong> - poslovnog procesa firme VWG.</h4>
+
+<br>
+<p>Proces prodaje proizvoda počinje prijemom upita kupca koji pristiže elektronskom poštom ili telefonom. Na osnovu upita, unose se osnovni podaci kupca u bazu i kreira se ponuda koja se dostavljaju kupcu. Ponuda sadrži spsiak traženih artikala sa aktuelnim cenama.
+</p>
 
 </div>
 

@@ -5,6 +5,6 @@ require '../vendor/autoload.php';
 require_once 'dbaccess_class.php';
 
 $db = new DbAccess;
-$datas = $db->database->select("STAVKAPONUDE", ["RBR", "BRPONUDE", "KOLICINA", "SIFRAARTIKLA"], ["BRPONUDE" => $_POST['BRPONUDE']]);
+$datas = $db->database->select("STAVKAPONUDE", ["BRPONUDE", "RBR", "KOLICINA", "SIFRAARTIKLA"], ["BRPONUDE" => $_GET['BRPONUDE']]);
 
 echo json_encode($datas);
