@@ -24,7 +24,6 @@ if (!isset($_SERVER['PHP_AUTH_PW']) || (($_SERVER['PHP_AUTH_PW'] != HTTP_PASS)))
     <script src="js/jquery-ui.min.js"></script>
     <script src='js/tablesorter.min.js'></script> 
     <script src="js/bootstrap-editable.min.js"></script>
-    <script src="js/jspdf.min.js"></script>
     <script src="js/index.js"></script>
     <title>VWG Inženjering</title>
   </head>

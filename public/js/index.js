@@ -196,7 +196,7 @@ function Tablify_ponuda(data, table_id, primary_key){
             type: 'text',
             pk: tmp_keys_array[i],
             url: 'ponuda_izmeni.php',
-            title: 'Izmenite naziv artikla'
+            title: 'Izmenite šifru kupca'
           });
         };
 
@@ -231,7 +231,7 @@ function Tablify_stavka(data, table_id, primary_key){
                 tableRow += '<td id="'+tmp_key+'_'+key+'" class="'+ key +'">' + turk[key] + '</td>';
 
             }
-                tableRow += '<td><a class="btn btn-danger" href="obrisi_stavke ponude.php?id_za_brisanje='+tmp_key+'&id_ponude='+tmp_brponude+'">Obriši<a> <a class="btn btn-info" href="ponuda.php?br_ponude='+tmp_brponude+'">Osveži<a></td>';
+                tableRow += '<td><a class="btn btn-danger" href="obrisi_stavke ponude.php?id_za_brisanje='+tmp_key+'&id_ponude='+tmp_brponude+'">Obriši<a> <a class="btn btn-info" href="ponuda.php?br_ponude='+tmp_brponude+'">Ažuriraj<a></td>';
                 tableRow += '</tr>';
                 tmp_keys_array.push(tmp_key);
 
@@ -254,7 +254,7 @@ function Tablify_stavka(data, table_id, primary_key){
             pk: tmp_keys_array[i],
             name: tmp_brponude,
             url: 'stavka_izmeni.php',
-            title: 'Izmenite kolicinu'
+            title: 'Izmenite količinu'
           });
         };
 
