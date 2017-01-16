@@ -6,16 +6,39 @@ body {
 }
 
 #myTable_kupac .IMEKUPCA {
-  background-color: pink;
+  background-color: #ccffcc;
 }
 
 #myTable_artikal .NAZIVARTIKLA {
-  background-color: pink;
+  background-color: #ccffcc;
 }
 
 #myTable_ponuda .SIFRAKUPCA {
-  background-color: pink;
+  background-color: #ccffcc;
 }
+
+#detalji_ponude .KOLICINA {
+  background-color: #ccffcc;
+}
+
+
+#detalji_ponude .BRPONUDE {
+  visibility: hidden;
+}
+
+#detalji_ponude th:first-child {
+  visibility: hidden;
+}
+
+.ponuda_omot {
+    border: 2px solid #5bc0de;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 900px;
+    margin: auto;
+   
+}
+
 
 .navbar {
 	background-color: #5bc0de;

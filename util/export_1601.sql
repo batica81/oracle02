@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - Sunday-January-15-2017   
+--  File created - Monday-January-16-2017   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for View ARTIKAL_VIEW
@@ -23,6 +23,12 @@ k.DETALJI.get_pib() "PIB",
 k.DETALJI.get_brtel() "BRTEL",
 k.DETALJI.get_email() "EMAIL"
 FROM kupac k;
+--------------------------------------------------------
+--  DDL for View STAVKA_VIEW
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "DB02"."STAVKA_VIEW" ("RBR", "BRPONUDE", "KOLICINA", "NAZIVARTIKLA") AS 
+  select sp.rbr, sp.brponude, sp.kolicina, a.nazivartikla from stavkaponude sp join artikal a on sp.SIFRAARTIKLA = A.SIFRAARTIKLA;
 --------------------------------------------------------
 --  DDL for Type DETALJI_KUPCA
 --------------------------------------------------------
@@ -151,7 +157,7 @@ END;
 --------------------------------------------------------
 
   CREATE TABLE "DB02"."STAVKAPONUDE" 
-   (	"RBR" NUMBER(5,0), 
+   (	"RBR" NUMBER(5,0) DEFAULT NULL, 
 	"BRPONUDE" NUMBER(5,0), 
 	"KOLICINA" NUMBER(5,0), 
 	"SIFRAARTIKLA" NUMBER(5,0)
@@ -169,7 +175,7 @@ END;
 --  DDL for Sequence ARTIKAL_SEQ1
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "DB02"."ARTIKAL_SEQ1"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "DB02"."ARTIKAL_SEQ1"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence CENA_SEQ
 --------------------------------------------------------
@@ -204,7 +210,12 @@ END;
 --  DDL for Sequence STAVKAPONUDE_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "DB02"."STAVKAPONUDE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 81 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "DB02"."STAVKAPONUDE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence STAVKAPONUDE_SEQ1
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "DB02"."STAVKAPONUDE_SEQ1"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence STAVKAUPITA_SEQ
 --------------------------------------------------------
@@ -238,17 +249,23 @@ SET DEFINE OFF;
 Insert into DB02.KUPAC (SIFRAKUPCA,IMEKUPCA,DETALJI) values (24,'Ana S.',DB02.DETALJI_KUPCA('Sombor',25654,254669,'qa@scripttic.com'));
 Insert into DB02.KUPAC (SIFRAKUPCA,IMEKUPCA,DETALJI) values (21,'Voja R.',DB02.DETALJI_KUPCA('Beograd',25114,112544,'batica@gmail.com'));
 Insert into DB02.KUPAC (SIFRAKUPCA,IMEKUPCA,DETALJI) values (23,'Nenad A.',DB02.DETALJI_KUPCA('Novi Sad',12557,884163,'qa@scripttic.com'));
-Insert into DB02.KUPAC (SIFRAKUPCA,IMEKUPCA,DETALJI) values (22,'Milos D.',DB02.DETALJI_KUPCA('Zemun',112588,99854,'qa@scripttic.com'));
+Insert into DB02.KUPAC (SIFRAKUPCA,IMEKUPCA,DETALJI) values (22,'Mihailo S.',DB02.DETALJI_KUPCA('Zemun',112588,99854,'qa@scripttic.com'));
+Insert into DB02.KUPAC (SIFRAKUPCA,IMEKUPCA,DETALJI) values (26,'Srdjan S.',DB02.DETALJI_KUPCA('munZe',112233,77554433,'mojemail@email.net'));
 REM INSERTING into DB02.PONUDA
 SET DEFINE OFF;
-Insert into DB02.PONUDA (BRPONUDE,DATUM,SIFRAKUPCA,IMEKUPCA,UKUPNI_IZNOS) values (49,to_timestamp('15-JAN-17 12.01.22.609000000 AM','DD-MON-RR HH.MI.SSXFF AM'),23,'Nenad A.',0);
-Insert into DB02.PONUDA (BRPONUDE,DATUM,SIFRAKUPCA,IMEKUPCA,UKUPNI_IZNOS) values (47,to_timestamp('15-JAN-17 12.01.15.673000000 AM','DD-MON-RR HH.MI.SSXFF AM'),24,'Ana S.',1080);
-Insert into DB02.PONUDA (BRPONUDE,DATUM,SIFRAKUPCA,IMEKUPCA,UKUPNI_IZNOS) values (48,to_timestamp('15-JAN-17 12.01.20.576000000 AM','DD-MON-RR HH.MI.SSXFF AM'),21,'Voja R.',0);
-Insert into DB02.PONUDA (BRPONUDE,DATUM,SIFRAKUPCA,IMEKUPCA,UKUPNI_IZNOS) values (50,to_timestamp('15-JAN-17 12.01.24.646000000 AM','DD-MON-RR HH.MI.SSXFF AM'),22,'Milos D.',0);
+Insert into DB02.PONUDA (BRPONUDE,DATUM,SIFRAKUPCA,IMEKUPCA,UKUPNI_IZNOS) values (47,to_timestamp('15-JAN-17 12.01.15.673000000 AM','DD-MON-RR HH.MI.SSXFF AM'),24,'Ana S.',110);
+Insert into DB02.PONUDA (BRPONUDE,DATUM,SIFRAKUPCA,IMEKUPCA,UKUPNI_IZNOS) values (57,to_timestamp('15-JAN-17 11.03.19.756000000 PM','DD-MON-RR HH.MI.SSXFF AM'),22,'Mihailo S.',720);
+Insert into DB02.PONUDA (BRPONUDE,DATUM,SIFRAKUPCA,IMEKUPCA,UKUPNI_IZNOS) values (58,to_timestamp('15-JAN-17 11.03.34.093000000 PM','DD-MON-RR HH.MI.SSXFF AM'),23,'Nenad A.',472);
+Insert into DB02.PONUDA (BRPONUDE,DATUM,SIFRAKUPCA,IMEKUPCA,UKUPNI_IZNOS) values (56,to_timestamp('15-JAN-17 11.00.09.090000000 PM','DD-MON-RR HH.MI.SSXFF AM'),26,'Srdjan S.',236);
+Insert into DB02.PONUDA (BRPONUDE,DATUM,SIFRAKUPCA,IMEKUPCA,UKUPNI_IZNOS) values (59,to_timestamp('16-JAN-17 11.45.20.897000000 AM','DD-MON-RR HH.MI.SSXFF AM'),24,'Ana S.',1192);
 REM INSERTING into DB02.STAVKAPONUDE
 SET DEFINE OFF;
-Insert into DB02.STAVKAPONUDE (RBR,BRPONUDE,KOLICINA,SIFRAARTIKLA) values (61,47,1,28);
-Insert into DB02.STAVKAPONUDE (RBR,BRPONUDE,KOLICINA,SIFRAARTIKLA) values (62,47,2,28);
+Insert into DB02.STAVKAPONUDE (RBR,BRPONUDE,KOLICINA,SIFRAARTIKLA) values (1,59,1,26);
+Insert into DB02.STAVKAPONUDE (RBR,BRPONUDE,KOLICINA,SIFRAARTIKLA) values (1,56,2,29);
+Insert into DB02.STAVKAPONUDE (RBR,BRPONUDE,KOLICINA,SIFRAARTIKLA) values (2,59,2,28);
+Insert into DB02.STAVKAPONUDE (RBR,BRPONUDE,KOLICINA,SIFRAARTIKLA) values (1,47,1,27);
+Insert into DB02.STAVKAPONUDE (RBR,BRPONUDE,KOLICINA,SIFRAARTIKLA) values (1,58,1,26);
+Insert into DB02.STAVKAPONUDE (RBR,BRPONUDE,KOLICINA,SIFRAARTIKLA) values (1,57,2,28);
 --------------------------------------------------------
 --  DDL for Index ARTIKAL_DETALJI_PK
 --------------------------------------------------------
@@ -394,6 +411,20 @@ BEGIN
 END;
 /
 ALTER TRIGGER "DB02"."ARTIKAL_TRG1" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger ARTIKAL_UPDATE
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "DB02"."ARTIKAL_UPDATE" 
+instead of update ON artikal_view
+for each row
+begin
+
+update artikal set nazivartikla=:new.nazivartikla where  sifraartikla = :new.sifraartikla;
+
+end ARTIKAL_UPDATE;
+/
+ALTER TRIGGER "DB02"."ARTIKAL_UPDATE" ENABLE;
 --------------------------------------------------------
 --  DDL for Trigger AZURIRAJ_IMEKUPCA
 --------------------------------------------------------
@@ -585,13 +616,44 @@ FOR EACH ROW
 BEGIN
   <<COLUMN_SEQUENCES>>
   BEGIN
-    IF INSERTING AND :NEW.RBR IS NULL THEN
-      SELECT STAVKAPONUDE_SEQ.NEXTVAL INTO :NEW.RBR FROM SYS.DUAL;
-    END IF;
+    NULL;
   END COLUMN_SEQUENCES;
 END;
 /
 ALTER TRIGGER "DB02"."STAVKAPONUDE_TRG" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger STAVKAPONUDE_TRG1
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "DB02"."STAVKAPONUDE_TRG1" 
+BEFORE INSERT ON STAVKAPONUDE 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    NULL;
+  END COLUMN_SEQUENCES;
+END;
+/
+ALTER TRIGGER "DB02"."STAVKAPONUDE_TRG1" DISABLE;
+--------------------------------------------------------
+--  DDL for Trigger STAVKAPONUDE_TRG3
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "DB02"."STAVKAPONUDE_TRG3" 
+BEFORE INSERT ON STAVKAPONUDE 
+FOR EACH ROW 
+declare tmp_rbr number;
+
+  BEGIN
+    IF INSERTING AND :NEW.RBR IS NULL THEN
+      select COUNT(rbr) INTO tmp_rbr FROM stavkaponude where brponude = :new.brponude;
+      tmp_rbr := tmp_rbr +1;
+      :NEW.RBR := tmp_rbr;
+    END IF;
+  END;
+/
+ALTER TRIGGER "DB02"."STAVKAPONUDE_TRG3" ENABLE;
 --------------------------------------------------------
 --  DDL for Trigger UNESI_AKTUELNU_CENU1
 --------------------------------------------------------
@@ -779,29 +841,6 @@ SET UKUPNI_IZNOS=suma
 WHERE brponude=br_pon;
 
 END ponuda_ukupno_proc;
-
-/
---------------------------------------------------------
---  DDL for Procedure cena_artikla
---------------------------------------------------------
-set define off;
-
-  CREATE OR REPLACE PROCEDURE "DB02"."cena_artikla" (sifra_art IN NUMBER)
-as
-cena_art ARTIKAL_DETALJI.TRENUTNA_CENA%type;
-
-begin
-
-cena_art:=0;
-select (c.cena*(1 + c.STOPAPDV/100)) into cena_art from cena c
-where c.sifraartikla = sifra_art and datum =
-(select max(datum) from cena where sifraartikla = sifra_art);
-
-update ARTIKAL_DETALJI
-set TRENUTNA_CENA = cena_art
-where sifraartikla = sifra_art;
-
-end "cena_artikla";
 
 /
 --------------------------------------------------------

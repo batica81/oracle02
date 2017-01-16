@@ -41,6 +41,35 @@ if (isset($_POST) && (!empty($_POST['SIFRAKUPCA'])) ) {
 
     <table id='myTable_ponuda' border='1' class='tablesorter table table-striped edit'></table>
 
+
+
+
+
+
+
+<script>
+
+
+
+    $.getJSON('get_ponuda.php', function(jsondata) {Tablify_ponuda(jsondata, '#myTable_ponuda', 'BRPONUDE');});
+    $.getJSON('get_kupac.php', function(jsondata) {Populate_option(jsondata,'SIFRAKUPCA', 'IMEKUPCA', '#selectbasic');});
+
+    $.getJSON('get_ponuda.php', function(jsondata) {Populate_option(jsondata,'BRPONUDE', 'BRPONUDE', '#select_BRPONUDE');});
+    $.getJSON('get_artikal.php', function(jsondata) {Populate_option(jsondata,'SIFRAARTIKLA', 'NAZIVARTIKLA', '#select_SIFRAARTIKLA');});
+</script>
+
+
+<?php 
+
+if (isset($_GET['br_ponude'])) {
+    
+
+ ?>
+
+
+<div class="ponuda_omot">
+<h3>Menjate ponudu br. <?php echo $_GET['br_ponude'];?></h3>
+
     <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
             <div class="panel panel-default">
@@ -48,13 +77,8 @@ if (isset($_POST) && (!empty($_POST['SIFRAKUPCA'])) ) {
                     <h3 class="panel-title">Dodajte novu stavku ponude</h3>
                 </div>
                 <div class="panel-body">
-                    <form action="" method="post" role="form">
-                        <div class="form-group">
-                                  <label class="control-label" for="select_BRPONUDE">Izaberi ponudu</label>
-                                    <select id="select_BRPONUDE" name="BRPONUDE" class="form-control">
-
-                                    </select>
-                        </div>
+                    <form action="dodaj_stavke_ponude.php" method="post" role="form">
+                        <input type="hidden" name="BRPONUDE" value="<?php echo $_GET['br_ponude'];?>">
 
                          <div class="form-group">
                                   <label class="control-label" for="select_SIFRAARTIKLA">Izaberi artikal</label>
@@ -64,43 +88,40 @@ if (isset($_POST) && (!empty($_POST['SIFRAKUPCA'])) ) {
                         </div>
 
                          <div class="form-group">
-                                  <label class="control-label" for="selectbasic3">Izaberi kolicinu</label>
-                                    <select id="selectbasic3" name="SIFRAKUPCA" class="form-control">
+                                <label class="control-label" for="kolicina">Unesi količinu</label>
+                                <input type="number" name="KOLICINA" class="form-control input-sm" placeholder="Kolicina" required>
 
-                                    </select>
                         </div>
 
-                        <button id="singlebutton" name="singlebutton" class="btn btn-success">Dodaj ponudu</button>
+                        <button id="singlebutton" name="singlebutton" class="btn btn-success">Dodaj stavku ponude</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <table id="detalji_ponude" border='1' class='tablesorter table table-striped'></table>
+    <div>
+    <h4>Stavke ponude</h4>
 
-<script>
+    <table id="detalji_ponude" border='1' class='table table-striped table-condensed'></table>
+    </div>
+</div>
 
- // $(document).ready(function() {
-     // $('.edit').editable('http://www.example.com/save.php');
- // });
-
-    $.getJSON('get_ponuda.php', function(jsondata) {Tablify_ponuda(jsondata, '#myTable_ponuda', 'BRPONUDE');});
-    $.getJSON('get_kupac.php', function(jsondata) {Populate_option(jsondata,'SIFRAKUPCA', 'IMEKUPCA', '#selectbasic');});
-
-
-
-
-    $.getJSON('get_stavke_ponude.php?BRPONUDE=47', function(jsondata) {Tablify(jsondata, '#detalji_ponude');});
+<script type="text/javascript">
+    
+    $.getJSON('get_stavke_ponude.php?BRPONUDE=<?php echo $_GET['br_ponude'];?>', function(jsondata) {Tablify_stavka(jsondata, '#detalji_ponude', 'RBR');});
+    
+</script>
 
 
 
 
-
+<?php 
+};
+ ?>
 
 
      
-</script>
 
 
 </div>

@@ -29,7 +29,7 @@ if (isset($_POST) && (!empty($_POST['NAZIVARTIKLA'])) ) {
                 <div class="panel-body">
                     <form action="" method="post" role="form">
                         <div class="form-group">
-                            <input type="text" name="NAZIVARTIKLA" id="NAZIVARTIKLA" class="form-control input-sm" placeholder="NAZIVARTIKLA">
+                            <input type="text" name="NAZIVARTIKLA" id="NAZIVARTIKLA" class="form-control input-sm" placeholder="NAZIVARTIKLA" required>
                         </div>
                         <div class="form-group">
                             <input type="text" name="OPISARTIKLA" id="OPISARTIKLA" class="form-control input-sm" placeholder="OPISARTIKLA">
