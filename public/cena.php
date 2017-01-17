@@ -35,10 +35,10 @@ if (isset($_POST) && (!empty($_POST['SIFRAARTIKLA'])) ) {
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="number" name="CENA" id="CENA" class="form-control input-sm" placeholder="CENA" required>
+                            <input type="number" min="1" step="1" name="CENA" id="CENA" class="form-control input-sm" placeholder="CENA" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" name="STOPAPDV" id="STOPAPDV" class="form-control input-sm" placeholder="STOPAPDV" required>
+                            <input type="number" min="1" step="1" name="STOPAPDV" id="STOPAPDV" class="form-control input-sm" placeholder="STOPAPDV" required>
                         </div>     
                         <input type="submit" value="Dodaj cenu" class="btn btn-info btn-block">
                     </form>

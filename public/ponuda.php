@@ -89,11 +89,11 @@ if (isset($_GET['br_ponude'])) {
 
                          <div class="form-group">
                                 <label class="control-label" for="kolicina">Unesi količinu</label>
-                                <input type="number" name="KOLICINA" class="form-control input-sm" placeholder="Kolicina" required>
+                                <input type="number" min="1" step="1" name="KOLICINA" class="form-control input-sm" placeholder="Kolicina" required>
 
                         </div>
 
-                        <button id="singlebutton" name="singlebutton" class="btn btn-success">Dodaj stavku ponude</button>
+                        <button id="singlebutton" name="singlebutton" class="btn btn-info">Dodaj stavku ponude</button>
                     </form>
                 </div>
             </div>

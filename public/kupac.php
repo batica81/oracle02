@@ -54,13 +54,13 @@ if (isset($_POST) && (!empty($_POST['imekupca'])) ) {
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="number" name="pib" id="pib" class="form-control input-sm" placeholder="pib">
+                                    <input type="number" min="1" step="1" name="pib" id="pib" class="form-control input-sm" placeholder="pib">
                                 </div>
                             </div>
                      
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="number" name="brtel" id="brtel" class="form-control input-sm" placeholder="brtel">
+                                    <input type="number" min="1" step="1" name="brtel" id="brtel" class="form-control input-sm" placeholder="brtel">
                                 </div>
                             </div>
                         </div>
