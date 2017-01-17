@@ -174,7 +174,7 @@ function Tablify_ponuda(data, table_id, primary_key){
                 tableRow += '<td id="'+tmp_key+'_'+key+'" class="'+ key +'">' + turk[key] + '</td>';
             }
 
-            tableRow += '<td><a class="btn btn-success" href="ponuda.php?br_ponude='+tmp_brponude+'">Izmeni<a> <a class="btn btn-danger" href="ponuda_obrisi.php?id_za_brisanje='+tmp_key+'">Obriši</td>';
+            tableRow += '<td><a class="btn btn-success" href="ponuda.php?br_ponude='+tmp_brponude+'">Detalji<a> <a class="btn btn-danger" href="ponuda_obrisi.php?id_za_brisanje='+tmp_key+'">Obriši</td>';
 
           tableRow += '</tr>';
           tmp_keys_array.push(tmp_key);

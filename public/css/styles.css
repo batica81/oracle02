@@ -1,7 +1,7 @@
 
 
 body {
-	background-color: linen;
+	background-color: azure;
 
 }
 
@@ -36,8 +36,13 @@ body {
     padding: 10px;
     max-width: 900px;
     margin: auto;
-   
+    background-color: aliceblue;
 }
+
+.table thead {
+  background-color: #5bc0de;
+}
+
 
 
 .navbar {

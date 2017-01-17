@@ -68,7 +68,7 @@ if (isset($_GET['br_ponude'])) {
 
 
 <div class="ponuda_omot">
-<h3>Menjate ponudu br. <?php echo $_GET['br_ponude'];?></h3>
+<h3>Detalji ponude br. <strong><?php echo $_GET['br_ponude'];?></strong></h3>
 
     <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
